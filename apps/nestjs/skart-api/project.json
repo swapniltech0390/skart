@@ -1,0 +1,64 @@
+{
+  "name": "nestjs-skart-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nestjs/skart-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/nestjs/skart-api",
+        "main": "apps/nestjs/skart-api/src/main.ts",
+        "tsConfig": "apps/nestjs/skart-api/tsconfig.app.json",
+        "assets": ["apps/nestjs/skart-api/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/nestjs/skart-api/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "nestjs-skart-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nestjs-skart-api:build:development"
+        },
+        "production": {
+          "buildTarget": "nestjs-skart-api:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nestjs/skart-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/nestjs/skart-api/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
