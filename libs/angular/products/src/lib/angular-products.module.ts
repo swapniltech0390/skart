@@ -13,6 +13,7 @@ import { ProductsFacade } from './+state/products/products.facade';
   imports: [
     CommonModule,
     RouterModule,
+    RouterModule.forChild(angularProductsRoutes),
     StoreModule.forFeature(
       fromProducts.PRODUCTS_FEATURE_KEY,
       fromProducts.productsReducer
