@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@skart/angular/products": ["libs/angular/products/src/index.ts"]
+      "@skart/angular/products": ["libs/angular/products/src/index.ts"],
+      "@skart/component-navbar": ["libs/shared/components/navbar/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

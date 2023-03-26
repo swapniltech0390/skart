@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromProducts from './+state/products/products.reducer';
 import { ProductsEffects } from './+state/products/products.effects';
 import { ProductsFacade } from './+state/products/products.facade';
+import {NavbarComponent} from '@skart/component-navbar';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ProductsFacade } from './+state/products/products.facade';
       fromProducts.productsReducer
     ),
     EffectsModule.forFeature([ProductsEffects]),
+    NavbarComponent,
   ],
   declarations: [ProductComponent],
   exports: [ProductComponent],
